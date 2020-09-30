@@ -4,12 +4,18 @@
 """ Tutorial zero of my pygame learning"""
 
 from window import Window
+from image import Image
 
 
 def main():
-    Win = Window()
-    Win.resolution = (640, 480)
-    Win.game_loop()
+    win = Window()
+    win.resolution = (640, 480)
+    img = Image()
+    img.load_from_file("resources\\image.jpg")
+    win.drawables.append(img)
+    print(img.rect)
+    win.update()
+    win.game_loop()
 
 
 if __name__ == "__main__":

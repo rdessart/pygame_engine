@@ -17,6 +17,7 @@ class Window():
         self._resolution = ()
         pygame.display.set_caption(caption)
         self.run = True
+        self.drawables = []
 
     @property
     def resolution(self):
@@ -62,6 +63,8 @@ class Window():
     def draw(self, clear_color: Color = Color(0, 0, 0)):
         """Draw call"""
         self.window.fill(clear_color.color)
+        for draw in self.drawables:
+            self.window.blit(draw.surface, draw.position)
         pygame.display.flip()
 
     def game_loop(self):

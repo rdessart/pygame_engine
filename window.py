@@ -4,6 +4,8 @@
 import pygame
 # from pygame.locals import *
 
+from color import Color
+
 
 class Window():
     """Handle a graphical windows"""
@@ -57,9 +59,10 @@ class Window():
     def update(self):
         """Update"""
 
-    def draw(self):
+    def draw(self, clear_color: Color = Color(0, 0, 0)):
         """Draw call"""
-        pygame.display.update()
+        self.window.fill(clear_color.color)
+        pygame.display.flip()
 
     def game_loop(self):
         while self.run:

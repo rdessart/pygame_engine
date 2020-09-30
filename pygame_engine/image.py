@@ -1,5 +1,5 @@
-# !/usr/bin/python3
-# coding : utf-8
+#!/usr/bin/python3
+# -*- coding: utf-8 -*-
 
 """Image loading and display"""
 
@@ -7,9 +7,8 @@ import logging as log
 import os
 
 import pygame
-# from pygame import locals
 
-import drawable
+from . import drawable
 
 
 class Image(drawable.Drawable):

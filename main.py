@@ -1,16 +1,15 @@
-# !/usr/bin/python3
-# coding : utf-8
-
+#!/usr/bin/python3
+# -*- coding: utf-8 -*-
 """ Tutorial zero of my pygame learning"""
 
-from window import Window
-from image import Image
+import pygame_engine.image as image
+import pygame_engine.window as window
 
 
 def main():
-    win = Window()
+    win = window.Window()
     win.resolution = (640, 480)
-    img = Image()
+    img = image.Image()
     img.load_from_file("resources\\image.jpg")
     win.drawables.append(img)
     print(img.rect)

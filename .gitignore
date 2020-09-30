@@ -1,3 +1,4 @@
 venv/
 .vscode/
 __pycache__/
+pygame_engine/__pycache__/

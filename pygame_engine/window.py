@@ -1,10 +1,10 @@
-# !/usr/bin/python3
-# coding : utf-8
+#!/usr/bin/python3
+# -*- coding: utf-8 -*-
 
 import pygame
 # from pygame.locals import *
 
-from color import Color
+from . import color
 
 
 class Window():
@@ -60,7 +60,7 @@ class Window():
     def update(self):
         """Update"""
 
-    def draw(self, clear_color: Color = Color(0, 0, 0)):
+    def draw(self, clear_color: color.Color = color.Color(0, 0, 0)):
         """Draw call"""
         self.window.fill(clear_color.color)
         for draw in self.drawables:

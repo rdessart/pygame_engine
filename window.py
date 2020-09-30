@@ -1,16 +1,15 @@
 # !/usr/bin/python3
 # coding : utf-8
-
-""" Tutorial zero of my pygame learning"""
-
 import pygame
-from pygame.locals import *
+# from pygame.locals import *
 
 
 class Window():
     """Handle a graphical windows"""
-    def __init__(self, resolution: tuple):
+    def __init__(self, resolution: tuple, do_init: bool = False):
         """Default constructor"""
+        if do_init:
+            pygame.init()
         self.window = pygame.display.set_mode(resolution)
         self.resolution = resolution
         self.run = True
@@ -33,13 +32,3 @@ class Window():
             self._handle_event()
             self.update()
             self.draw()
-
-
-def main():
-    pygame.init()
-    Win = Window((640, 480))
-    Win.game_loop()
-
-
-if __name__ == "__main__":
-    main()

@@ -8,10 +8,16 @@ import os
 
 import pygame
 
-from . import drawable
+
+class Drawable():
+    """ Drawable """
+    def __init__(self):
+        """ default contsturctor """
+        self.position = ()
+        self.surface = None
 
 
-class Image(drawable.Drawable):
+class Image(Drawable):
     """Image"""
     def __init__(self,):
         """Constuctor"""

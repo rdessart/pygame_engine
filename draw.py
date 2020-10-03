@@ -44,6 +44,10 @@ class Image(Drawable):
         self.surface = self._image
         return True
 
+    def scale(self, new_res: tuple):
+        """ Rescale image to the new resolution"""
+        self._image = pygame.transform.scale(self._image, new_res)
+
     @property
     def rect(self):
         return self._image_rect

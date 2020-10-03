@@ -9,10 +9,8 @@ from . import color
 
 class Window():
     """Handle a graphical windows"""
-    def __init__(self, caption: str = "Pygame", do_init: bool = False):
+    def __init__(self, caption: str = "Pygame"):
         """Default constructor"""
-        if do_init:
-            pygame.init()
         self.window = None
         self._resolution = ()
         pygame.display.set_caption(caption)

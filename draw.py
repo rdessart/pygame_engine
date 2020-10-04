@@ -16,6 +16,18 @@ class Drawable():
         self.position = ()
         self.surface = None
 
+    def set_colorkey(self, color: pygame.Color):
+        """Set the alpha color of the surface"""
+        self.surface.set_colorkey(color)
+
+    def scale(self, new_res: tuple):
+        """ Rescale image to the new resolution"""
+        self.surface = pygame.transform.smoothscale(self._image, new_res)
+
+    def overlay(self, color: tuple, flags=pygame.BLEND_MULT):
+        """ Add a color overlay to the surface"""
+        self.surface.fill(color, special_flags=flags)
+
 
 class Image(Drawable):
     """Image"""
@@ -38,15 +50,11 @@ class Image(Drawable):
         self._image = image.convert()
         if color_key is not None:
             if color_key == -1:
-                color_key = self._image.get_at((0, 0))
+                color_key = self._image.get_at((10, 10))
             self._image.set_colorkey(color_key)
         self._image_rect = self._image.get_rect()
         self.surface = self._image
         return True
-
-    def scale(self, new_res: tuple):
-        """ Rescale image to the new resolution"""
-        self._image = pygame.transform.scale(self._image, new_res)
 
     @property
     def rect(self):

@@ -22,7 +22,7 @@ class Drawable():
 
     def scale(self, new_res: tuple):
         """ Rescale image to the new resolution"""
-        self.surface = pygame.transform.smoothscale(self._image, new_res)
+        self.surface = pygame.transform.smoothscale(self.surface, new_res)
 
     def overlay(self, color: tuple, flags=pygame.BLEND_MULT):
         """ Add a color overlay to the surface"""
@@ -55,6 +55,11 @@ class Image(Drawable):
         self._image_rect = self._image.get_rect()
         self.surface = self._image
         return True
+
+    def crop(self, width: int, height: int, left: int, top: int):
+        self.surface = pygame.Surface([width, height])
+        self.surface.blit(self._image, (0, 0), (top, left, width, height))
+        self._image_rect = self.surface.get_rect()
 
     @property
     def rect(self):
